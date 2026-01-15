@@ -95,7 +95,7 @@ A route table was created for the private subnet.
 | `10.0.0.0/16` | local       |
 | `0.0.0.0/0`   | NAT Gateway |
 
-![Private Route Table](screenshot-1/08_Private_Route.png)
+![Private Route Table](screenshots-1/08_Private_Route.png)
 
 ---
 
@@ -146,5 +146,6 @@ Outbound:
 * Key Pair: `assignment1`
 
 ![EC2 Instances](screenshot-1/13_Private_instance.png)
+
 
 
