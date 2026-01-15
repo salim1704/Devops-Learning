@@ -147,6 +147,42 @@ Outbound:
 
 ![EC2 Instances](screenshots-1/13_Private_instance.png)
 
+### Connect to Bastion Host
+
+The bastion host was accessed using SSH from the local machine.
+
+This confirms that the public subnet and Internet Gateway are working correctly.
+
+```
+ssh -i assignment1.pem ec2-user@<BASTION_PUBLIC_IP>
+```
+
+### Connect to Private instance
+Once in the bastion host, with the following command i was able to access the private instance. 
+
+```
+ssh -i assignment1.pem ec2-user@<PRIVATE_EC2_PRIVATE_IP>
+```
+
+### Internet Access
+From the private EC2:
+
+```
+curl https://ifconfig.me
+```
+
+The returned IP matched the Elastic IP of the NAT Gateway, confirming that outbound internet traffic from the private subnet is routed correctly.
+
+### Conclusion
+This assignment demonstrates a standard and secure AWS network design:
+
+* Public and private subnets
+
+* Controlled access via a bastion host
+
+* Secure outbound internet access via a NAT Gateway
+
+Through this project, I learned that the order in which infrastructure is created is critically important. Certain components cannot function or even be created unless their prerequisites are in place. For example, a NAT Gateway cannot be created or become available unless an Internet Gateway is already attached to the VPC, because the NAT Gateway depends on it for outbound internet access.
 
 
 
