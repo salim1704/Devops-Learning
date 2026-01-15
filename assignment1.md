@@ -1,4 +1,4 @@
-# Assignment 1 – AWS VPC with Public and Private Subnets
+# Assignment 1 – VPC and Networking
 
 ## Overview
 
@@ -179,3 +179,4 @@ The returned IP matched the **Elastic IP of the NAT Gateway**, confirming that o
 
 
 This architecture is widely used in production AWS environments to ensure security and scalability.
+
