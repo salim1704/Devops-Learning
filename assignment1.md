@@ -28,7 +28,7 @@ The architecture consists of:
 
 ### Architecture Diagram
 
-![Architecture Diagram](screenshots/architecture.png)
+![Architecture Diagram](screenshots-1/assignment_1_AD.png)
 
 ---
 
@@ -40,7 +40,7 @@ A custom VPC was created with the CIDR block:
 10.0.0.0/16
 ```
 
-![VPC](screenshots/vpc.png)
+![VPC](screenshots-1/01-VPC.png)
 
 ---
 
@@ -53,7 +53,7 @@ Two subnets were created in the same Availability Zone:
 | Public Subnet  | `10.0.1.0/24` | Hosts the Bastion and NAT Gateway |
 | Private Subnet | `10.0.2.0/24` | Hosts the private EC2             |
 
-![Subnets](screenshots/subnets.png)
+![Subnets](screenshots-1/02-2_Subnets.png)
 
 ---
 
@@ -61,7 +61,7 @@ Two subnets were created in the same Availability Zone:
 
 An Internet Gateway was created and attached to the VPC to allow internet access.
 
-![Internet Gateway](screenshots/igw.png)
+![Internet Gateway](screenshots-1/03_Internet_Gateway.png)
 
 ---
 
@@ -74,7 +74,7 @@ A route table was created and associated with the public subnet.
 | `10.0.0.0/16` | local            |
 | `0.0.0.0/0`   | Internet Gateway |
 
-![Public Route Table](screenshots/public-rt.png)
+![Public Route Table](screenshots-1/06_Public_Route.png)
 
 ---
 
@@ -82,7 +82,7 @@ A route table was created and associated with the public subnet.
 
 An Elastic IP was allocated and attached to a NAT Gateway created inside the **public subnet**.
 
-![NAT Gateway](screenshots/nat.png)
+![NAT Gateway](screenshots-1/04_NAT_Gateway.png)
 
 ---
 
@@ -95,7 +95,7 @@ A route table was created for the private subnet.
 | `10.0.0.0/16` | local       |
 | `0.0.0.0/0`   | NAT Gateway |
 
-![Private Route Table](screenshots/private-rt.png)
+![Private Route Table](screenshot-1/08_Private_Route.png)
 
 ---
 
@@ -121,7 +121,9 @@ Outbound:
 
 * All traffic
 
-![Security Groups](screenshots/security-groups.png)
+![Bastion host](screenshot-1/11_Bastion_SG.png)
+
+![Private Instance Security Group](screenshot-1/12_Priv_Instance_SG.png)
 
 ---
 
@@ -134,6 +136,8 @@ Outbound:
 * Security Group: Bastion-SG
 * Key Pair: `assignment1`
 
+![Bastion Host](screenshot-1/14_Bastion_Host.png)
+
 ### Private EC2
 
 * Subnet: Private Subnet
@@ -141,42 +145,6 @@ Outbound:
 * Security Group: Private-EC2-SG
 * Key Pair: `assignment1`
 
-![EC2 Instances](screenshots/ec2.png)
+![EC2 Instances](screenshot-1/13_Private_instance.png)
 
----
-
-## Step 9 – Connect to the Bastion Host
-
-The bastion host was accessed using SSH from the local machine.
-
-![Bastion SSH](screenshots/bastion-ssh.png)
-
-This confirms that the public subnet and Internet Gateway are working correctly.
-
----
-
-## Step 10 – Access the Private EC2
-
-The private EC2 instance was accessed through the bastion host, ensuring it is not exposed to the internet.
-
-![Private SSH](screenshots/private-ssh.png)
-
----
-
-## Step 11 – Verify NAT Gateway
-
-From the private EC2:
-
-```
-curl https://ifconfig.me
-```
-
-The returned IP matched the **Elastic IP of the NAT Gateway**, confirming that outbound internet traffic from the private subnet is routed correctly.
-
-![NAT Test](screenshots/nat-test.png)
-
----
-
-
-This architecture is widely used in production AWS environments to ensure security and scalability.
 
