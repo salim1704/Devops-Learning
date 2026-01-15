@@ -111,6 +111,8 @@ Outbound:
 
 * All traffic
 
+![Bastion host](screenshots-1/11_Bastion_SG.png)
+
 ### Private EC2 Security Group
 
 Inbound:
@@ -121,9 +123,7 @@ Outbound:
 
 * All traffic
 
-![Bastion host](screenshot-1/11_Bastion_SG.png)
-
-![Private Instance Security Group](screenshot-1/12_Priv_Instance_SG.png)
+![Private Instance Security Group](screenshots-1/12_Priv_Instance_SG.png)
 
 ---
 
@@ -136,7 +136,7 @@ Outbound:
 * Security Group: Bastion-SG
 * Key Pair: `assignment1`
 
-![Bastion Host](screenshot-1/14_Bastion_Host.png)
+![Bastion Host](screenshots-1/14_Bastion_Host.png)
 
 ### Private EC2
 
@@ -145,7 +145,8 @@ Outbound:
 * Security Group: Private-EC2-SG
 * Key Pair: `assignment1`
 
-![EC2 Instances](screenshot-1/13_Private_instance.png)
+![EC2 Instances](screenshots-1/13_Private_instance.png)
+
 
 
 
